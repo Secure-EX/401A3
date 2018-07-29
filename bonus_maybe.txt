@@ -1,0 +1,13 @@
+Q: Truth-and-lie Detector Implementation with TensorFlow
+   Hello all, for the bonus part, I am interested to explore the option of implementing the lie detector using RNN in TF. I have gone through the TF's tutorial which is for text classification I believe, and I found it hard to relate to our problem. A few questions as below:
+
+   When the handout mentions, "try a RNN that read one MFCC vector at a time", does a mean we feed a d-dim vector (i.e., x_t) or a vector of length Txd (i.e., X.reshape(-1)) for each time-step. If it is the latter, we might also need to pad zeros for each sequence to the maximum length?
+
+   Also for the RNN structure, is there any suggestion for using LSTM or GRU? From what I have Googled, the general performance of GRU and LSTM is relatively on par, and GRU can be more efficiently trained due to its simplicity in nature. But if we feed a Txd MFCC vector each time, would LSTM be expected to be better because of its advantageous over long-term dependency in the features?
+
+   Any help is appreciated. Thanks!
+
+A: You should feed a d-dimensional vector at each timestep; after processing T vectors, the hidden state is used as input to a classifier. The idea of an
+   RNN is it allows variable length inputs, so you don't need every input to be the same length.
+
+   There's no general rule on whether to use LSTM or GRU; the only way is to try both and see which performs better. In the past, I've gotten good results using a bidirectional GRU for text classification.
