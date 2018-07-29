@@ -1,0 +1,1 @@
+Place to store my CSC401 Assignment 3 code. It is about Gaussian mixture modelling, and two basic tasks in speech technology: speaker identification, in which we try to determine who is talking, and speech recognition, in which we try to determine what was said.
